@@ -237,7 +237,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/12/%E5%89%8D%E7%AB%AFjs%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/">
+    <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/12/js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.jpg">
@@ -251,7 +251,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/04/12/%E5%89%8D%E7%AB%AFjs%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="post-title-link" itemprop="url">前端js优化之路</a>
+            <a href="/2022/04/12/js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="post-title-link" itemprop="url">前端js优化之路</a>
         </h2>
 
         <div class="post-meta">
@@ -260,10 +260,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-04-12 11:07:28 / 修改时间：16:12:27" itemprop="dateCreated datePublished" datetime="2022-04-12T11:07:28+08:00">2022-04-12</time>
+              <time title="创建时间：2022-04-12 11:07:28" itemprop="dateCreated datePublished" datetime="2022-04-12T11:07:28+08:00">2022-04-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-13 16:28:45" itemprop="dateModified" datetime="2022-04-13T16:28:45+08:00">2022-04-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -285,15 +291,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="1-如果同一变量有多个条件"><a href="#1-如果同一变量有多个条件" class="headerlink" title="1. 如果同一变量有多个条件"></a>1. 如果同一变量有多个条件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span> || b == <span class="number">2</span> || c == <span class="number">3</span>)&#123;</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h5 id="如果同一变量有多个条件"><a href="#如果同一变量有多个条件" class="headerlink" title="如果同一变量有多个条件"></a>如果同一变量有多个条件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span> || b == <span class="number">2</span> || c == <span class="number">3</span>)&#123;</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>👇</p>
+<p>👇shorter👇</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">includes</span>(a))&#123;</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="2-简单-if-判断使用三元表达式代替"><a href="#2-简单-if-判断使用三元表达式代替" class="headerlink" title="2. 简单 if 判断使用三元表达式代替"></a>2. 简单 if 判断使用三元表达式代替</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bool</span><br><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span>)&#123;</span><br><span class="line">  bool = <span class="literal">true</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  bool = <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="简单-if-判断使用三元表达式代替"><a href="#简单-if-判断使用三元表达式代替" class="headerlink" title="简单 if 判断使用三元表达式代替"></a>简单 if 判断使用三元表达式代替</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bool</span><br><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span>)&#123;</span><br><span class="line">  bool = <span class="literal">true</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  bool = <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>👇</p>
+<p>👇shorter👇</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bool = a == <span class="number">1</span> ? <span class="literal">true</span> : <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="是否为空检查-简写"><a href="#是否为空检查-简写" class="headerlink" title="是否为空检查 简写"></a>是否为空检查 简写</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="keyword">if</span>(a != <span class="string">&#x27;&#x27;</span> &amp;&amp; a != <span class="literal">null</span> &amp;&amp; a != <span class="literal">undefined</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;do some&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>👇shorter👇</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line">a &amp;&amp; <span class="title function_">dosome</span>()</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dosome</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;do some&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="检查某变量是否有值，若无则设默认值"><a href="#检查某变量是否有值，若无则设默认值" class="headerlink" title="检查某变量是否有值，若无则设默认值"></a>检查某变量是否有值，若无则设默认值</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="keyword">if</span>(a == <span class="literal">null</span> || a == <span class="literal">undefined</span> || a == <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="string">&#x27;default&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>👇shorter👇</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = a || <span class="string">&#x27;default&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待续。。。</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -573,7 +592,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-12 16:12:44" itemprop="dateModified" datetime="2022-04-12T16:12:44+08:00">2022-04-12</time>
+                <time title="修改时间：2022-04-12 16:16:03" itemprop="dateModified" datetime="2022-04-12T16:16:03+08:00">2022-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -602,7 +621,7 @@
 <p>nodejs原版registry为</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">http</span>:<span class="comment">//registry.npmjs.org</span></span><br></pre></td></tr></table></figure>
 
-<p>用set换为阿里镜像：</p>
+<p>用set换为淘宝镜像：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry <span class="attr">http</span>:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
 
       
