@@ -251,7 +251,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/04/12/js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="post-title-link" itemprop="url">前端js优化之路</a>
+            <a href="/2022/04/12/js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="post-title-link" itemprop="url">js简写优化之路</a>
         </h2>
 
         <div class="post-meta">
@@ -268,7 +268,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 16:28:45" itemprop="dateModified" datetime="2022-04-13T16:28:45+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-13 16:40:37" itemprop="dateModified" datetime="2022-04-13T16:40:37+08:00">2022-04-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,6 +310,11 @@
 
 <p>👇shorter👇</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = a || <span class="string">&#x27;default&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="常用-array-find-使用场景-有一个对象数组并且我们想要根据对象属性查找特定对象时"><a href="#常用-array-find-使用场景-有一个对象数组并且我们想要根据对象属性查找特定对象时" class="headerlink" title="(常用) array.find() 使用场景 有一个对象数组并且我们想要根据对象属性查找特定对象时"></a>(常用) array.find() 使用场景 有一个对象数组并且我们想要根据对象属性查找特定对象时</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = []</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">findFromArr</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; data.<span class="property">length</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (data[i].<span class="property">type</span> === <span class="string">&quot;test1&quot;</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> data[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>👇shorter👇</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = []</span><br><span class="line">findArr = data.<span class="title function_">find</span>(</span><br><span class="line">  <span class="function">(<span class="params">data</span>) =&gt;</span> data.<span class="property">type</span> === <span class="string">&quot;test1&quot;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待续。。。</span></span><br></pre></td></tr></table></figure>
