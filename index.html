@@ -194,6 +194,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/18/Js%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E6%97%B6%E9%92%9F%EF%BC%88%E5%A4%87%E7%94%A8%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="Ning lx">
+      <meta itemprop="description" content="卑微菜鸡，在线CV">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NING">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/18/Js%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E6%97%B6%E9%92%9F%EF%BC%88%E5%A4%87%E7%94%A8%EF%BC%89/" class="post-title-link" itemprop="url">Js实现网页时钟（备用）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-18 15:46:39 / 修改时间：15:57:02" itemprop="dateCreated datePublished" datetime="2022-04-18T15:46:39+08:00">2022-04-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h6 id="js定时器实现一个网页时钟，直接贴代码（Vue框架环境）"><a href="#js定时器实现一个网页时钟，直接贴代码（Vue框架环境）" class="headerlink" title="js定时器实现一个网页时钟，直接贴代码（Vue框架环境）"></a>js定时器实现一个网页时钟，直接贴代码（Vue框架环境）</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;he-sjzt&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;he-xs&quot;</span>&gt;</span>&#123;&#123; dateTime &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;he-nyr&quot;</span>&gt;</span>&#123;&#123; yearTime &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">dateTime</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">yearTime</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">time</span>();</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title function_">time</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="comment">// 获取当前时间</span></span><br><span class="line">      <span class="variable language_">window</span>.<span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> yy = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getFullYear</span>();</span><br><span class="line">        <span class="keyword">const</span> mm =</span><br><span class="line">          <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getMonth</span>() + <span class="number">1</span> &lt; <span class="number">10</span></span><br><span class="line">            ? <span class="string">&quot;0&quot;</span> + (<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getMonth</span>() + <span class="number">1</span>)</span><br><span class="line">            : <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getMonth</span>() + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">const</span> dd =</span><br><span class="line">          <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getDate</span>() &lt; <span class="number">10</span></span><br><span class="line">            ? <span class="string">&quot;0&quot;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getDate</span>()</span><br><span class="line">            : <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getDate</span>();</span><br><span class="line">        <span class="keyword">const</span> hh = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getHours</span>();</span><br><span class="line">        <span class="keyword">const</span> mf =</span><br><span class="line">          <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getMinutes</span>() &lt; <span class="number">10</span></span><br><span class="line">            ? <span class="string">&quot;0&quot;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getMinutes</span>()</span><br><span class="line">            : <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getMinutes</span>();</span><br><span class="line">        <span class="keyword">const</span> ss =</span><br><span class="line">          <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getSeconds</span>() &lt; <span class="number">10</span></span><br><span class="line">            ? <span class="string">&quot;0&quot;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getSeconds</span>()</span><br><span class="line">            : <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getSeconds</span>();</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">yearTime</span> = yy + <span class="string">&quot;-&quot;</span> + mm + <span class="string">&quot;-&quot;</span> + dd;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dateTime</span> = hh + <span class="string">&quot;:&quot;</span> + mf + <span class="string">&quot;:&quot;</span> + ss;</span><br><span class="line">      &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped&gt;</span><br><span class="line"><span class="selector-class">.he-sjzt</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">17px</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.he-xs</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">22px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.he-nyr</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">400</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/18/Vue%E4%B8%ADclearInterval%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -344,7 +416,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/12/JSON%E4%B8%B2%E4%B8%ADkey%E5%80%BC%E6%94%B9%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+    <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/12/Json%E4%B8%B2%E4%B8%ADkey%E5%80%BC%E6%94%B9%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.jpg">
@@ -358,7 +430,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/04/12/JSON%E4%B8%B2%E4%B8%ADkey%E5%80%BC%E6%94%B9%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">JSON串中key值改为指定字符串</a>
+            <a href="/2022/04/12/Json%E4%B8%B2%E4%B8%ADkey%E5%80%BC%E6%94%B9%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">Json串中key值改为指定字符串</a>
         </h2>
 
         <div class="post-meta">
@@ -375,7 +447,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 17:54:26" itemprop="dateModified" datetime="2022-04-13T17:54:26+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-18 15:57:44" itemprop="dateModified" datetime="2022-04-18T15:57:44+08:00">2022-04-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -403,7 +475,7 @@
 <p>等同于👇</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/12/JSON%E4%B8%B2%E4%B8%ADkey%E5%80%BC%E6%94%B9%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
+              <a class="btn" href="/2022/04/12/Json%E4%B8%B2%E4%B8%ADkey%E5%80%BC%E6%94%B9%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -427,7 +499,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/12/js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/">
+    <link itemprop="mainEntityOfPage" href="http://ninglx.github.io/2022/04/12/Js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.jpg">
@@ -441,7 +513,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/04/12/js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="post-title-link" itemprop="url">js简写优化之路</a>
+            <a href="/2022/04/12/Js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="post-title-link" itemprop="url">Js简写优化之路</a>
         </h2>
 
         <div class="post-meta">
@@ -458,7 +530,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 17:54:14" itemprop="dateModified" datetime="2022-04-13T17:54:14+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-18 15:34:49" itemprop="dateModified" datetime="2022-04-18T15:34:49+08:00">2022-04-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -486,7 +558,7 @@
 <p>👇shorter👇</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/12/js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/#more" rel="contents">
+              <a class="btn" href="/2022/04/12/Js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -970,7 +1042,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
