@@ -53,20 +53,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Js异步改同步（按顺序执行）</title>
-    <url>/2022/04/13/Js%E5%BC%82%E6%AD%A5%E6%94%B9%E5%90%8C%E6%AD%A5%EF%BC%88%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%EF%BC%89/</url>
-    <content><![CDATA[<h5 id="使用-asycn-x2F-await"><a href="#使用-asycn-x2F-await" class="headerlink" title="使用 asycn &#x2F; await"></a>使用 asycn &#x2F; await</h5><h5 id="使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时"><a href="#使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时" class="headerlink" title="使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时"></a>使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时</h5><span id="more"></span>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">val flag = <span class="string">&#x27;before&#x27;</span></span><br><span class="line">val slowFun = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123; <span class="comment">// 返回一个 promise 对象</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">      flag = <span class="string">&#x27;changed&#x27;</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;slowFun done&#x27;</span>)</span><br><span class="line">      <span class="title function_">resolve</span>() <span class="comment">// 标志此方法完成</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">2000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">doAll</span>(<span class="params"></span>)&#123; <span class="comment">// async 关键字指明是一个同步方法</span></span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">slowFun</span>() <span class="comment">// await 即等待slowFun执行完成</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(flag)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;have waited slowFun for 2s&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">doAll</span>() <span class="comment">// 执行测试</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-        <tag>异步同步</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Js简写优化之路</title>
     <url>/2022/04/12/Js%E7%AE%80%E5%86%99%E4%BC%98%E5%8C%96%E4%B9%8B%E8%B7%AF/</url>
     <content><![CDATA[<h5 id="如果同一变量有多个条件"><a href="#如果同一变量有多个条件" class="headerlink" title="如果同一变量有多个条件"></a>如果同一变量有多个条件</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span> || b == <span class="number">2</span> || c == <span class="number">3</span>)&#123;</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -107,6 +93,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Js异步改同步（按顺序执行）</title>
+    <url>/2022/04/13/Js%E5%BC%82%E6%AD%A5%E6%94%B9%E5%90%8C%E6%AD%A5%EF%BC%88%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%EF%BC%89/</url>
+    <content><![CDATA[<h5 id="使用-asycn-x2F-await"><a href="#使用-asycn-x2F-await" class="headerlink" title="使用 asycn &#x2F; await"></a>使用 asycn &#x2F; await</h5><h5 id="使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时"><a href="#使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时" class="headerlink" title="使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时"></a>使用场景：当有耗时方法执行，想让另一段代码在这段耗时代码之后执行时</h5><span id="more"></span>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">val flag = <span class="string">&#x27;before&#x27;</span></span><br><span class="line">val slowFun = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123; <span class="comment">// 返回一个 promise 对象</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">      flag = <span class="string">&#x27;changed&#x27;</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;slowFun done&#x27;</span>)</span><br><span class="line">      <span class="title function_">resolve</span>() <span class="comment">// 标志此方法完成</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">2000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">doAll</span>(<span class="params"></span>)&#123; <span class="comment">// async 关键字指明是一个同步方法</span></span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">slowFun</span>() <span class="comment">// await 即等待slowFun执行完成</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(flag)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;have waited slowFun for 2s&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">doAll</span>() <span class="comment">// 执行测试</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>异步同步</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NodeJs换镜像源</title>
     <url>/2022/04/11/NodeJs%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90/</url>
     <content><![CDATA[<h3 id="nodejs-换源"><a href="#nodejs-换源" class="headerlink" title="nodejs 换源"></a>nodejs 换源</h3><p>get命令查看registry</p>
@@ -127,6 +127,15 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/04/11/hello-world/</url>
+    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">world hello   ^-^</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>HelloWorld</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Vue中clearInterval失效问题</title>
     <url>/2022/04/18/Vue%E4%B8%ADclearInterval%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h5 id="使用场景：在当前页面使用的定时器，离开当前页面需要销毁-以避免不必要的性能浪费"><a href="#使用场景：在当前页面使用的定时器，离开当前页面需要销毁-以避免不必要的性能浪费" class="headerlink" title="使用场景：在当前页面使用的定时器，离开当前页面需要销毁 以避免不必要的性能浪费"></a>使用场景：在当前页面使用的定时器，离开当前页面需要销毁 以避免不必要的性能浪费</h5><h5 id="首先是setInterval和clearInterval的基本用法"><a href="#首先是setInterval和clearInterval的基本用法" class="headerlink" title="首先是setInterval和clearInterval的基本用法"></a>首先是<strong>setInterval</strong>和<strong>clearInterval</strong>的基本用法</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myTimer = <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="comment">// 每 1s 调用一次</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;do once...&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="title function_">beforeDestroy</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="built_in">clearInterval</span>(myTimer) <span class="comment">// 清除定时器 myTimer</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -142,15 +151,6 @@
         <tag>Vue</tag>
         <tag>javascript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/04/11/hello-world/</url>
-    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">world hello   ^-^</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>HelloWorld</category>
-      </categories>
   </entry>
   <entry>
     <title>从服务器指定路径下载文件</title>
